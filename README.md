@@ -1,7 +1,7 @@
 # Chrome-devtool clone
 This project is a React application that allows users to fetch network request details from a specified URL and filter them based on different types of requests.
 
-<img src='./public/devtool.png' alt='devtool' width='100%'/>
+<img src='./public/home.png' alt='devtool' width='100%'/>
 
 ### Features
 - Search Bar: Enter a URL and fetch network request details.
