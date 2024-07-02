@@ -23,6 +23,7 @@ const networkReducer = (state = initialState, action) => {
         status: 'loading',
       };
     case FETCH_NETWORK_DATA_SUCCESS:
+      console.log('Reducer received data:', action.payload);
       return {
         ...state,
         status: 'succeeded',
@@ -40,8 +41,6 @@ const networkReducer = (state = initialState, action) => {
 
       if (filter !== 'all') {
         filteredData = state.data.filter((item) => item.type === filter);
-      }else{
-        filteredData = state.data
       }
 
       return {

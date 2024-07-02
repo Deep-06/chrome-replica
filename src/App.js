@@ -16,6 +16,7 @@ function App() {
   const status = useSelector((state) => state.status);
   const error = useSelector((state) => state.error);
 
+  //console.log('Network data in component:', Array.isArray(networkData));
 
   return (
     <Box p={5} className='App' >
@@ -72,7 +73,7 @@ function App() {
       <Flex gap={4}>
         <Text fontSize={'2xl'} fontWeight={600}>Response</Text>
         {networkData.length>0 && networkData.map((request, index) => (
-          <Text fontSize={'l'}>{JSON.stringify(request.response, null, 2)}</Text>
+          <Text key={index} fontSize={'l'}>{JSON.stringify(request.response, null, 2)}</Text>
         ))}
          
       </Flex>
