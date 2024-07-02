@@ -18,7 +18,8 @@ function App() {
 
 
   return (
-    <Box p={5} className='App'>
+    <Box p={5} className='App' >
+    <Box>
     <SearchBar /> 
     <Flex gap='20px' p={4}>
      <Text fontSize='2xl' fontWeight={600}>Elements</Text>
@@ -33,7 +34,8 @@ function App() {
     {status === 'loading' && <Text>Loading...</Text>}
     {status === 'failed' && <Text>Error: {error}</Text>}
     {status === 'succeeded' && networkData.length > 0 && (
-      <Table variant="simple">
+      <Box>
+      <Table variant="simple" textAlign={'left'} size='sm'>
         <Thead>
           <Tr>
           <Th>Name</Th>
@@ -43,7 +45,7 @@ function App() {
             <Th>Type</Th>
             <Th>Headers</Th>
             <Th>Payload</Th>
-            <Th>Response</Th>
+            {/* <Th>Response</Th> */}
           </Tr>
         </Thead>
         <Tbody>
@@ -60,14 +62,25 @@ function App() {
               <Td>
                 <Text whiteSpace="pre-wrap">{request.payload}</Text>
               </Td>
-              <Td>
+              {/* <Td>
                 <Text whiteSpace="pre-wrap">{JSON.stringify(request.response, null, 2)}</Text>
-              </Td>
+              </Td> */}
             </Tr>
           ))}
         </Tbody>
-      </Table>
+      </Table> 
+      <Flex gap={4}>
+        <Text fontSize={'2xl'} fontWeight={600}>Response</Text>
+        {networkData?.map((request, index) => (
+          <Text fontSize={'l'}>{JSON.stringify(request.response, null, 2)}</Text>
+        ))}
+         
+      </Flex>
+</Box>
+   
+      
     )}
+  </Box>
   </Box>
           
   );
