@@ -12,7 +12,7 @@ const initialState = {
   filteredData: [],
   status: 'idle',
   error: null,
-  filter: 'all', 
+  filter: 'all',
 };
 
 const networkReducer = (state = initialState, action) => {
@@ -34,13 +34,14 @@ const networkReducer = (state = initialState, action) => {
         status: 'failed',
         error: action.payload,
       };
-      case SET_NETWORK_FILTER:
+    case SET_NETWORK_FILTER:
       const filter = action.payload;
       let filteredData = state.data;
 
       if (filter !== 'all') {
         filteredData = state.data.filter((item) => item.type === filter);
       }
+
       return {
         ...state,
         filter,

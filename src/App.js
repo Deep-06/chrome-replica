@@ -32,7 +32,7 @@ function App() {
     <Filter />
     {status === 'loading' && <Text>Loading...</Text>}
     {status === 'failed' && <Text>Error: {error}</Text>}
-    {networkData.length > 0 && (
+    {status === 'succeeded' && networkData.length > 0 && (
       <Table variant="simple">
         <Thead>
           <Tr>
