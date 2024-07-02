@@ -23,8 +23,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "server": "node server.js",
+    "client": "react-scripts start",
     "build": "react-scripts build",
     "vercel-build": "npm run build",
     "test": "react-scripts test",

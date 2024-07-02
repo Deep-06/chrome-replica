@@ -50,7 +50,7 @@ function App() {
           </Tr>
         </Thead>
         <Tbody>
-          {networkData.length>0 &&networkData.map((request, index) => (
+          {networkData.length>0 && networkData.map((request, index) => (
             <Tr key={index}>
             <Td>{request.url}</Td>
               <Td>{request.method}</Td>
