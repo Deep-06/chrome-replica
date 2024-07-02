@@ -40,6 +40,8 @@ const networkReducer = (state = initialState, action) => {
 
       if (filter !== 'all') {
         filteredData = state.data.filter((item) => item.type === filter);
+      }else{
+        filteredData = state.data
       }
 
       return {

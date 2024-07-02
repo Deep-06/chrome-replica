@@ -49,7 +49,7 @@ function App() {
           </Tr>
         </Thead>
         <Tbody>
-          {networkData?.map((request, index) => (
+          {networkData.length>0 &&networkData.map((request, index) => (
             <Tr key={index}>
             <Td>{request.url}</Td>
               <Td>{request.method}</Td>
@@ -71,7 +71,7 @@ function App() {
       </Table> 
       <Flex gap={4}>
         <Text fontSize={'2xl'} fontWeight={600}>Response</Text>
-        {networkData?.map((request, index) => (
+        {networkData.length>0 && networkData.map((request, index) => (
           <Text fontSize={'l'}>{JSON.stringify(request.response, null, 2)}</Text>
         ))}
          

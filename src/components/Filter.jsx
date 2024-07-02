@@ -35,7 +35,7 @@ export const Filter = () => {
             </Flex>
             <Box textAlign={'left'}>
             <ButtonGroup variant="outline" spacing="3" >
-                {['All', 'Fetch/XHR', 'Doc', 'CSS', 'JS', 'Font', 'Img', 'Media', 'Manifest', 'WS', 'Wasm', 'Other'].map((type) => (
+                {['All', 'Fetch/XHR', 'Doc', 'CSS', 'JS', 'html', 'Font', 'Img', 'Media', 'Manifest', 'WS', 'Wasm', 'Other'].map((type) => (
                     <Button
                         key={type}
                         colorScheme={filter === type ? 'blue' : 'white'}
