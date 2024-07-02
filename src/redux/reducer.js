@@ -1,36 +1,54 @@
-import { ADD_REQUEST, SET_FILTER, SET_SELECTED_REQUEST, SET_URL } from "./actionType";
 
+
+import {
+  FETCH_NETWORK_DATA_REQUEST,
+  FETCH_NETWORK_DATA_SUCCESS,
+  FETCH_NETWORK_DATA_FAILURE,
+  SET_NETWORK_FILTER,
+} from './actionType.js';
 
 const initialState = {
-  requests: [],
-  selectedRequest: null,
-  filter: 'all',
-  url: '',
+  data: [],
+  filteredData: [],
+  status: 'idle',
+  error: null,
+  filter: 'all', // Default filter
 };
 
-export const reducer = (state = initialState, {type,payload}) => {
-  switch (type) {
-    case ADD_REQUEST:
+const networkReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_NETWORK_DATA_REQUEST:
       return {
         ...state,
-        requests: [...state.requests, payload],
+        status: 'loading',
       };
-    case SET_SELECTED_REQUEST:
+    case FETCH_NETWORK_DATA_SUCCESS:
       return {
         ...state,
-        selectedRequest: payload,
+        status: 'succeeded',
+        data: action.payload,
       };
-    case SET_FILTER:
+    case FETCH_NETWORK_DATA_FAILURE:
       return {
         ...state,
-        filter: payload,
+        status: 'failed',
+        error: action.payload,
       };
-      case SET_URL:
+      case SET_NETWORK_FILTER:
+      const filter = action.payload;
+      let filteredData = state.data;
+
+      if (filter !== 'all') {
+        filteredData = state.data.filter((item) => item.type === filter);
+      }
       return {
         ...state,
-        url: payload,
+        filter,
+        filteredData,
       };
     default:
       return state;
   }
 };
+
+export default networkReducer;

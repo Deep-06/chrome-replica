@@ -1,34 +1,38 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setUrl } from '../redux/action';
+import { fetchNetworkData } from '../redux/action';
 import { Input, Button, Flex } from '@chakra-ui/react';
+//import axios from 'axios';
 
 const SearchBar = () => {
+  const [url, setUrl] = useState('');
   const dispatch = useDispatch();
-  const [inputUrl, setInputUrl] = useState('');
-
-//   const handleSearch = () => {
-//     if (!inputUrl.startsWith('http')) {
-//       setInputUrl('http://' + inputUrl);
-//     }
-//     dispatch(setUrl(inputUrl));
-//   };
 
   const handleSearch = () => {
-    const proxyUrl = `http://localhost:3001/proxy?target=${encodeURIComponent(inputUrl)}`;
-    dispatch(setUrl(proxyUrl));
+    dispatch(fetchNetworkData(url));
   };
+
+
+  //   try {
+  //     const response = await axios.get(`/api/fetch-network-data?url=${encodeURIComponent(url)}`);
+  //     console.log('Network data received:', response.data);
+  //     setNetworkData(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching network data:', error);
+  //   }
+  // };
 
   return (
     <Flex mb={4}>
-      <Input
-        value={inputUrl}
-        onChange={(e) => setInputUrl(e.target.value)}
-        placeholder="Enter URL"
-        mr={2}
-      />
-      <Button onClick={handleSearch}>Search</Button>
-    </Flex>
+          <Input
+            placeholder="Enter URL"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            mr={2}
+          />
+          <Button onClick={handleSearch}>Search</Button>
+        </Flex>
+
   );
 };
 
