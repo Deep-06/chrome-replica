@@ -12,7 +12,7 @@ const initialState = {
   filteredData: [],
   status: 'idle',
   error: null,
-  filter: 'all', // Default filter
+  filter: 'all', 
 };
 
 const networkReducer = (state = initialState, action) => {

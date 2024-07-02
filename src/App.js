@@ -47,7 +47,7 @@ function App() {
           </Tr>
         </Thead>
         <Tbody>
-          {networkData.map((request, index) => (
+          {networkData?.map((request, index) => (
             <Tr key={index}>
             <Td>{request.url}</Td>
               <Td>{request.method}</Td>
