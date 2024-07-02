@@ -12,5 +12,5 @@ This project is a React application that allows users to fetch network request d
 React | Redux | Chakra UI (for styling) | HTML | JS | axios | Express
 
 ### Deployment
-link- 
-video-
+link- https://chrome-replica.vercel.app/
+video link- https://drive.google.com/file/d/1n3nZJyemgHDhnNSFLNSTVmVGKFrXe0Tr/view?usp=sharing
